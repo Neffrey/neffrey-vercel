@@ -14,7 +14,7 @@ const Footer = () => (
             backgroundColor: '#212121',
         }}
     >
-        <h6>Copyright © 2021</h6>
+        <h6>hii I'ma footer</h6>
     </footer>
 )
 
