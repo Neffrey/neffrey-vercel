@@ -87,7 +87,7 @@ const contactRow = () => {
                 onClick={ handleSubmit }
                 size="large"
             >
-                Login
+                Send Message
             </Button>
           </TextCard>
         </Grid>
