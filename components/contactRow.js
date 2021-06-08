@@ -45,7 +45,43 @@ const contactRow = () => {
   const handleSubmit = event => {
     event.preventDefault()
     console.log("event", event)
-
+    console.log(email, message)
+    fetch('https://dev.neffrey.com/graphql', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        query: `mutation SubmitForm {
+            submitGravityFormsForm(
+                input: {
+                    formId: 1, fieldValues: [
+                        {id: 2, value: ${email}},
+                        {id: 3, value: ${message}}
+                    ]
+                }
+            ) {
+              errors {
+                id
+                message
+              }
+            }
+          }`,
+      }),
+    })
+    .then(response => {
+      // if (!response.ok) {
+      //   throw new Error('Network response was not ok');
+      // }
+      console.log(response)
+      // return response.blob();
+    })
+    // .then(myBlob => {
+    //   myImage.src = URL.createObjectURL(myBlob);
+    // })
+    .catch(error => {
+      console.error('There has been a problem with your fetch operation:', error);
+    });
   }
   
   // Render Component
