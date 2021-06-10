@@ -1,5 +1,5 @@
 // Framework
-import React, { useState } from 'react'
+import React, { useContext, setState, useState } from 'react'
 
 // Styles
 import { makeStyles, useTheme } from '@material-ui/core/styles'
@@ -10,15 +10,25 @@ import { Button, Grid, TextField, Typography } from '@material-ui/core'
 
 
 // My Components
+import { ResponseContext } from '../contexts/responseContext'
 import TextCard from './textCard'
+import FormResponse from './formResponse'
 
-
+// GQL
+import { useMutation } from '@apollo/client'
+import { SUBMIT_FORM } from '../gql/submitForm'
 
 // Component Function
 const contactRow = () => {
 
   // Get Theme
   const theme = useTheme()
+
+  // Get Context 
+  const { response, setResponseTrue } = useContext(ResponseContext)
+
+  // GQL
+  const [ submitFormMutation ] = useMutation(SUBMIT_FORM)
 
   // Make Styles
   const useStyles = makeStyles({
@@ -41,49 +51,23 @@ const contactRow = () => {
   const [ email, setEmail ] = useState("")
   const [ message, setMessage ] = useState("")
 
+  // Validate before submit
+  const validateForm = () => {
+    return email.length > 0 && email.includes("@") && email.includes(".") && !(email.endsWith(".")) && message.length > 0
+  }
+
   // Handle Submit
   const handleSubmit = event => {
     event.preventDefault()
-    console.log("event", event)
-    console.log(email, message)
-    fetch('https://dev.neffrey.com/graphql', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        query: `mutation SubmitForm {
-            submitGravityFormsForm(
-                input: {
-                    formId: 1, fieldValues: [
-                        {id: 2, value: ${email}},
-                        {id: 3, value: ${message}}
-                    ]
-                }
-            ) {
-              errors {
-                id
-                message
-              }
-            }
-          }`,
-      }),
-    })
-    .then(response => {
-      // if (!response.ok) {
-      //   throw new Error('Network response was not ok');
-      // }
-      console.log(response)
-      // return response.blob();
-    })
-    // .then(myBlob => {
-    //   myImage.src = URL.createObjectURL(myBlob);
-    // })
-    .catch(error => {
-      console.error('There has been a problem with your fetch operation:', error);
-    });
+    console.log(event)
+    submitFormMutation({ variables: { email: email, message: message }})
+    setResponseTrue()
+    setEmail("")
+    setMessage("")
+    console.log("responseTrue set")
   }
   
+
   // Render Component
   return (
       <Grid id="contact" container justify="center" alignItems="center" spacing={4} style={{ padding:40, background:'#333' }}>
@@ -120,11 +104,13 @@ const contactRow = () => {
             <Button  
                 color="primary" 
                 variant="contained"
+                disabled={ !validateForm() } 
                 onClick={ handleSubmit }
                 size="large"
             >
                 Send Message
             </Button>
+            <FormResponse/>
           </TextCard>
         </Grid>
         <Grid item xs={12} md={6} style={{ textAlign:'right' }}>
