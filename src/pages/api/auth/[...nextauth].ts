@@ -1,5 +1,5 @@
 import NextAuth, { type NextAuthOptions } from "next-auth";
-import DiscordProvider from "next-auth/providers/discord";
+import GoogleProvider from "next-auth/providers/google";
 import { env } from "../../../env/server.mjs";
 
 export const authOptions: NextAuthOptions = {
@@ -14,11 +14,17 @@ export const authOptions: NextAuthOptions = {
   },
   // Configure one or more authentication providers
   providers: [
-    // DiscordProvider({
-    //   clientId: env.DISCORD_CLIENT_ID,
-    //   clientSecret: env.DISCORD_CLIENT_SECRET,
-    // }),
-    // ...add more providers here
+    GoogleProvider({
+      clientId: env.GOOGLE_ID ? env.GOOGLE_ID : "",
+      clientSecret: env.GOOGLE_SECRET ? env.GOOGLE_SECRET : "",
+      authorization: {
+        params: {
+          prompt: "consent",
+          access_type: "offline",
+          response_type: "code",
+        },
+      },
+    }),
   ],
 };
 
