@@ -1,11 +1,9 @@
 // LIBRARIES
 import React, { createContext, useState } from "react";
-import { useColorMode } from "@chakra-ui/react";
-import { getToken } from "next-auth/jwt"
+import { getToken } from "next-auth/jwt";
 import create from "zustand";
 
 // Create Auth Context & Store Object
-export const userStore = require("store");
 
 // Context Type
 interface UserZustandType {
@@ -45,9 +43,9 @@ interface UserZustandType {
  */
 export const UserZustand = create<UserZustandType>()((set) => ({
   /** USER CALLS */
-  createUser: () => {},
-  loginUser: () => {},
-  logoutUser: () => {},
+  createUser: () => {console.log("hi")},
+  loginUser: () => {console.log("hi")},
+  logoutUser: () => {console.log("hi")},
   // createSession
   // getSession
   // updateSession
