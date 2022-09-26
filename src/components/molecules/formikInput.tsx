@@ -15,7 +15,7 @@ interface FormikInputProps {
   placeholder?: string;
 }
 
-// COMPONENT FUNCTION
+// FC
 const FormikInput = ({
   name,
   label = "",
@@ -39,7 +39,7 @@ const FormikInput = ({
         className={
           "w-full" +
           addClassName(className) +
-          (meta.error ? addClassName(errorClassName) : "")
+          (meta.error && meta.touched ? addClassName(errorClassName) : "")
         }
         placeholder={placeholder}
         type="text"

@@ -6,7 +6,7 @@ interface ReactJSLogoProps {
   className?: string;
 }
 
-// Component Function
+// FC
 const ReactJSLogo = ({ className = "" }: ReactJSLogoProps) => {
   return (
     <svg

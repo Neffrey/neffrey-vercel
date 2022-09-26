@@ -5,7 +5,7 @@ import React from "react";
 import ResponsiveImage from "components/atoms/responsiveImage";
 
 // FC
-const HomeGraphicDesign: React.FC = () => {
+const HomeGraphicDesign = () => {
   return (
     <div
       // Row container

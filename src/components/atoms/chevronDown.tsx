@@ -6,7 +6,7 @@ interface ChevronDownProps {
   className?: string;
 }
 
-// Component Function
+// FC
 const ChevronDown = ({ className = "" }: ChevronDownProps) => {
   return (
     <svg viewBox="0 -256 1792 1792" className={className}>

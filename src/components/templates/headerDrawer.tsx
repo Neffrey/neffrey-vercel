@@ -7,7 +7,7 @@ interface HeaderDrawerProps {
   children?: React.ReactNode;
 }
 
-// Component Function
+// FC
 const HeaderDrawer = ({ children }: HeaderDrawerProps) => {
   return (
     <div className="drawer drawer-end">

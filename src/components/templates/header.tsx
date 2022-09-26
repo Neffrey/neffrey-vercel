@@ -5,8 +5,8 @@ import React from "react";
 // // COMPONENTS
 import NeffreyLogo from "components/atoms/neffreyLogo";
 
-// Component Function
-const Header: React.FC = () => {
+// FC
+const Header = () => {
   return (
     <div
       // Row Container

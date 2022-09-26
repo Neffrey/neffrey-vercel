@@ -18,7 +18,7 @@ interface FormikTextAreaProps {
   cols?: number | undefined;
 }
 
-// COMPONENT FUNCTION
+// FC
 const FormikTextArea = ({
   name,
   label = "",
@@ -43,7 +43,7 @@ const FormikTextArea = ({
         className={
           "w-full" +
           addClassName(className) +
-          (meta.error ? addClassName(errorClassName) : "")
+          (meta.error && meta.touched ? addClassName(errorClassName) : "")
         }
         cols={cols}
         placeholder={placeholder}

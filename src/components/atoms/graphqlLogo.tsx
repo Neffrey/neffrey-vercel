@@ -6,7 +6,7 @@ interface GraphQlLogoProps {
   className?: string;
 }
 
-// Component Function
+// FC
 const GraphQlLogo = ({ className = "" }: GraphQlLogoProps) => {
   return (
     <svg viewBox="0 0 400 400" className={className}>

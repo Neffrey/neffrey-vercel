@@ -6,7 +6,7 @@ interface CustomSvgIcon {
   className?: string;
 }
 
-// Component Function
+// FC
 const WordPressLogo = ({ className = "" }: CustomSvgIcon) => {
   return (
     <svg viewBox="0 0 186.3 189" className={className}>

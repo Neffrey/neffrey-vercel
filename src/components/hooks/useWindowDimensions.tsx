@@ -6,17 +6,21 @@ const useWindowDimensions = () => {
     height: 0,
   });
 
-  useEffect(() => {
-    const { innerWidth, innerHeight } = window;
-    setWindowDimensions({
-      width: innerWidth,
-      height: innerHeight,
-    });
-  }, []);
+  // Set initial window dims
+  // useEffect(() => {
+  //   const { innerWidth, innerHeight } = window;
+  //   setWindowDimensions({
+  //     width: innerWidth,
+  //     height: innerHeight,
+  //   });
+  // }, []);
 
+  // Set  window dims
   useEffect(() => {
     const handleResize = () => {
       const { innerWidth, innerHeight } = window;
+
+      // Set initial
       setWindowDimensions({
         width: innerWidth,
         height: innerHeight,

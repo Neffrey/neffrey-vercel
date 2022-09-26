@@ -6,7 +6,7 @@ import GraphqlLogo from "components/atoms/graphqlLogo";
 import ReactJSLogo from "components/atoms/reactjsLogo";
 import WordPressLogo from "components/atoms/wordpressLogo";
 
-// COMPONENT FUNCTION
+// FC
 const HomeWebDevelopment = () => {
   return (
     <div
@@ -18,7 +18,7 @@ const HomeWebDevelopment = () => {
         // Text box container
         className="flex flex-col items-center rounded-lg bg-black/50 p-12 lg:max-w-[65vw]"
       >
-        <h2 className="text-center text-4xl tracking-wider">
+        <h2 className="text-center text-4xl tracking-wider lowercase">
           ReactJS and Wordpress
         </h2>
         <div className="p-6" />

@@ -6,7 +6,7 @@ import Link from "next/link";
 import useWindowDimensions from "components/hooks/useWindowDimensions";
 import ChevronDown from "components/atoms/chevronDown";
 
-// COMPONENT FUNCTION
+// FC
 const HomeHero = () => {
   const [bgImg, setBgImg] = useState("lake-flow-bw-600.jpg");
   const { width } = useWindowDimensions();
@@ -57,12 +57,11 @@ const HomeHero = () => {
           </div>
         </Link>
         <div className="p-4" />
-        <button
-          className="btn btn-lg border-accent-focus bg-accent-focus font-bold text-white hover:-translate-y-1 hover:scale-105 hover:border-accent-focus hover:bg-accent"
-          onClick={() => console.log("Window Dims: ", width)}
-        >
-          Send Me A Message
-        </button>
+        <Link href="/#contact">
+          <button className="btn btn-lg border-accent-focus bg-accent-focus font-bold text-white hover:-translate-y-1 hover:scale-105 hover:border-accent-focus hover:bg-accent">
+            Send Me A Message
+          </button>
+        </Link>
       </div>
 
       <div

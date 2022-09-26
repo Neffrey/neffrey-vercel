@@ -4,8 +4,8 @@ import React from "react";
 // COMPONENTS
 import NeffreyLogo from "components/atoms/neffreyLogo";
 
-// Component Function
-const Footer: React.FC = () => {
+// FC
+const Footer = () => {
   return (
     <div className="w-full border-t-4 border-solid border-neutral bg-gradient-to-r from-accent to-accent-focus p-4">
       <div className="flex justify-around">

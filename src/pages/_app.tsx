@@ -4,6 +4,7 @@ import { SessionProvider } from "next-auth/react";
 import Header from "components/templates/header";
 import HeaderDrawer from "components/templates/headerDrawer";
 import Footer from "components/templates/footer";
+import Apollo from "components/contexts/apollo";
 
 const MyApp: AppType = ({
   Component,
@@ -11,11 +12,13 @@ const MyApp: AppType = ({
 }) => {
   return (
     <SessionProvider session={session}>
-      <HeaderDrawer>
-        <Header />
-        <Component {...pageProps} />
-        <Footer />
-      </HeaderDrawer>
+      <Apollo>
+        <HeaderDrawer>
+          <Header />
+          <Component {...pageProps} />
+          <Footer />
+        </HeaderDrawer>
+      </Apollo>
     </SessionProvider>
   );
 };

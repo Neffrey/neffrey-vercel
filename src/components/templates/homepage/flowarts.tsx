@@ -4,8 +4,8 @@ import React from "react";
 // COMPONENTS
 import ResponsiveImage from "components/atoms/responsiveImage";
 
-// COMPONENT FUNCTION
-const HomeFlowarts: React.FC = () => {
+// FC
+const HomeFlowarts = () => {
   return (
     <div
       // Row container

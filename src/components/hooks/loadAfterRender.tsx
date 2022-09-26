@@ -6,7 +6,7 @@ interface OnRenderProps {
   children: React.ReactNode;
 }
 
-// Component Function
+// FC
 const OnRender = ({ children }: OnRenderProps) => {
   // State
   const [rendered, setRendered] = useState(false);

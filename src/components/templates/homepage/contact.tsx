@@ -1,18 +1,11 @@
 // LIBRARIES
-import React, { useState } from "react";
+import React from "react";
 
 // COMPONENTS
 import ContactForm from "components/organisms/contactForm";
-import FormMessageSent from "components/molecules/formMessageSent"
 
 // FC
-const HomeContact: React.FC = () => {
-  const [formSubmitted, setFormSubmitted] = useState(false);
-
-  const toggleFormSubmitted = () => {
-    setFormSubmitted(!formSubmitted);
-  };
-
+const HomeContact = () => {
   return (
     <div
       // Row container
@@ -25,7 +18,7 @@ const HomeContact: React.FC = () => {
       >
         <div className="grid-col-1 grid justify-items-center gap-10 lg:grid-cols-2">
           <div className="flex max-w-lg flex-col">
-            <h2 className="mb-10 text-center text-5xl lowercase">
+            <h2 className="mb-10 text-center text-4xl lowercase">
               Get In Touch
             </h2>
             <div className="p-2" />
@@ -47,12 +40,7 @@ const HomeContact: React.FC = () => {
             </p>
           </div>
           <div className="flex w-full items-center justify-center">
-            {!formSubmitted && (
-              <ContactForm toggleFormSubmitted={() => toggleFormSubmitted()} />
-            )}
-            {formSubmitted && (
-              <FormMessageSent className="text-center text-md" />
-            )}
+              <ContactForm />
           </div>
         </div>
       </div>

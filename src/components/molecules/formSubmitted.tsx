@@ -1,8 +1,8 @@
 // LIBRARIES
 import React from "react";
 
-// COMPONENT FUNCTION
-const FormMessageSent = ({ className = "" }) => {
+// FC
+const FormSubmitted = ({ className = "" }) => {
   return (
     <div className={className}>
       {"Your message was sent!"}
@@ -11,4 +11,4 @@ const FormMessageSent = ({ className = "" }) => {
     </div>
   );
 };
-export default FormMessageSent;
+export default FormSubmitted;

@@ -6,7 +6,7 @@ interface LogoProps {
   className?: string;
 }
 
-// Component Function
+// FC
 const NeffreyLogo = ({ className = "" }: LogoProps) => {
   return (
     <svg viewBox="0 0 300 300" className={className}>

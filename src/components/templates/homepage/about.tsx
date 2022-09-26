@@ -4,7 +4,7 @@ import React from "react";
 // COMPONENTS
 import ResponsiveImage from "components/atoms/responsiveImage";
 
-// COMPONENT FUNCTION
+// FC
 const HomeAbout = () => {
   return (
     <div
